@@ -1,0 +1,125 @@
+@import "/src/styles/variables";
+
+.root{
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background: $whiteColor;
+  width: 100%;
+
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 34px 125px 0;
+  color: $textColor;
+  @media only screen and (max-width: $extraLargeDisplay) {
+    padding: 34px 70px 0;
+  }
+  @media only screen and (max-width: $smallDisplay) {
+    flex-direction: column;
+    padding: 25px 30px 0;
+  }
+}
+.nav{
+  padding: 30px 125px;
+  display: flex;
+  justify-content: flex-end;
+  @media only screen and (max-width: $extraLargeDisplay) {
+    padding: 30px 70px;
+  }
+  @media only screen and (max-width: $smallDisplay) {
+    padding: 25px 30px ;
+  }
+  a{
+    margin-left: 30px;
+    color: $darkGreyColor;
+    text-decoration: none;
+    font-size: 20px;
+    @media only screen and (max-width: $smallDisplay) {
+      font-size: 18px;
+    }
+  }
+}
+.active{
+  font-weight: bold;
+  position: relative;
+  &:after{
+    content: "";
+    position: absolute;
+    bottom: -16px;
+    width: 105%;
+    background: $accentColor;
+    height: 5px;
+    border-radius: 30px;
+    right: 0;
+    @media only screen and (max-width: $smallDisplay) {
+      bottom: -13px;
+    }
+  }
+}
+.logoWrapper{
+  width: 40%;
+  @media only screen and (max-width: $smallDisplay) {
+    width: 100%;
+  }
+}
+.logo{
+  max-width: 200px;
+  @media only screen and (max-width: $smallDisplay) {
+    width: 165px;
+  }
+}
+.address{
+  text-align: left;
+  .subtitle{
+    margin-left: 30px;
+  }
+  @media only screen and (max-width: $smallDisplay) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-bottom: 5px;
+  }
+}
+.number{
+  text-align: right;
+  .subtitle{
+    margin-left: 30px;
+  }
+  @media only screen and (max-width: $smallDisplay) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+}
+
+.title{
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  @media only screen and (max-width: $smallDisplay) {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  img{
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    @media only screen and (max-width: $smallDisplay) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+.subtitle{
+  font-weight: bold;
+  font-size: 18px;
+  @media only screen and (max-width: $smallDisplay) {
+    font-size: 14px;
+  }
+}

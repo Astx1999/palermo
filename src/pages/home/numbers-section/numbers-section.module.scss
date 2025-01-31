@@ -1,0 +1,92 @@
+@import "src/styles/variables";
+
+.numbersBG {
+    width: 100%;
+    margin: 30px 0 65px;
+    padding: 10px 120px;
+    @media only screen and (max-width: $mediumDisplay) {
+        padding: 10px 10%;
+        margin: 30px 0;
+    }
+    @media only screen and (max-width: $smallDisplay) {
+        padding: 10px 20px;
+        margin: 20px 0;
+    }
+}
+
+.numbers {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ensures 4 equal columns */
+    grid-gap: 50px;
+    box-sizing: border-box; /* Ensures padding and border are included in width and height */
+    @media only screen and (max-width: $mediumDisplay) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media only screen and (max-width: $smallDisplay) {
+        gap: 10px;
+    }
+}
+
+.numberWrapper {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    box-shadow: 1px 2px 30px #cbc7c7;
+    padding: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    p{
+        display: flex;
+        align-items: center;
+    }
+    span {
+        font-size: 60px;
+        position: relative;
+        color: $darkGreyColor;
+        font-weight: bold;
+        @media only screen and (max-width: $extraLargeDisplay) {
+            font-size: 40px;
+        }
+        @media only screen and (max-width: $mediumDisplay) {
+            font-size: 35px;
+        }
+        @media only screen and (max-width: $smallDisplay) {
+            font-size: 30px;
+        }
+        @media only screen and (max-width: $extraSmallDisplay) {
+            font-size: 25px;
+        }
+    }
+}
+
+.sup{
+    font-size: 60px;
+    color: $darkGreyColor;
+    margin-left: 10px;
+    font-weight: bold;
+    @media only screen and (max-width: $extraLargeDisplay) {
+        font-size: 40px;
+    }
+    @media only screen and (max-width: $mediumDisplay) {
+        font-size: 35px;
+    }
+    @media only screen and (max-width: $smallDisplay) {
+        font-size: 30px;
+    }
+    @media only screen and (max-width: $extraSmallDisplay) {
+        margin-left: 5px;
+        font-size: 25px;
+    }
+}
+.numberDescription {
+    color: $darkGreyColor;
+    margin-top: 10px;
+    font-size: 20px;
+    @media only screen and (max-width: $smallDisplay) {
+        font-size: 13px;
+    }
+    @media only screen and (max-width: $extraSmallDisplay) {
+        font-size: 12px;
+    }
+}
