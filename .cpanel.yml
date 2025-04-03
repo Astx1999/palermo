@@ -2,7 +2,7 @@ deployment:
   branches:
     main:
       deploy:
-        - cd /home2/smbatsaakyan/public_html/palermo
+        - cd /home2/smbatsaakyan/public_html
         - npm install
         - npm run build
-        - cp -R build/* /home2/smbatsaakyan/public_html/palermo
+        - cp -R build/* /home2/smbatsaakyan/public_html
