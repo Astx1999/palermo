@@ -1,13 +1,8 @@
-@import "src/styles/variables";
+@import "../../styles/variables";
 
-.root{
-  margin-top: 50px;
-  padding: 190px 120px 90px;
+.root {
+  max-width: 900px;
+  margin: 120px auto 0;
+  padding: 48px 16px;
   line-height: 1.7;
-  @media only screen and (max-width: $mediumDisplay) {
-    padding: 190px 10% 30px;
-  }
-  @media only screen and (max-width: $smallDisplay) {
-    padding: 190px 20px 30px;
-  }
 }

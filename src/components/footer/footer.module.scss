@@ -14,8 +14,9 @@
 .logo {
   filter: brightness(9);
   margin-bottom: 25px;
+  width: 150px;
   @media only screen and (max-width: $smallDisplay) {
-    width: 165px;
+    width: 100px;
   }
 }
 
@@ -45,7 +46,7 @@
       width: 33%;
     }
     @media only screen and (max-width: $smallDisplay) {
-      width: 50%;
+      width: 45%;
     }
   }
 
@@ -55,7 +56,7 @@
       width: 33%;
     }
     @media only screen and (max-width: $smallDisplay) {
-      width: 50%;
+      width: 55%;
     }
   }
 
@@ -77,7 +78,8 @@
   margin-bottom: 20px;
 
   img {
-    height: fit-content;
+    width: 20px;
+    height: 20px;
     @media only screen and (max-width: $smallDisplay) {
       width: 20px;
       height: 20px;
@@ -95,6 +97,9 @@
   padding-left: 10px;
   font-size: 15px;
   color: $whiteColor;
+  @media only screen and (max-width: $smallDisplay) {
+    font-size: 12px;
+  }
 }
 
 .address {
@@ -180,8 +185,9 @@
   font-size: 16px;
   font-weight: bold;
   @media only screen and (max-width: $smallDisplay) {
-    font-size: 14px;
+    font-size: 12px;
   }
+
   a {
     color: $whiteColor;
     text-decoration: none;

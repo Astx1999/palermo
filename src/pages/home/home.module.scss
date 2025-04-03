@@ -1,140 +1,311 @@
-@import "src/styles/variables";
+@import "../../styles/variables";
 
 .root {
-    background-color: $backgroundColor;
-    padding-bottom: 50px;
+  background-color: $backgroundColor;
+  padding-bottom: 50px;
 }
 
-.title {
-    text-align: center;
-    color: $titleColor;
-    font-size: 30px;
-    position: relative;
-    margin: 60px auto auto;
-    display: table;
-    font-weight: bold;
-    @media only screen and (max-width: $smallDisplay) {
-        font-size: 25px;
-        margin: 20px auto auto;
-    }
-    //&:before {
-    //    content: "";
-    //    width: 50px;
-    //    height: 3px;
-    //    background-color: $accentColor;
-    //    position: absolute;
-    //    left: -70px;
-    //    top: 50%;
-    //    @media only screen and (max-width: $smallDisplay) {
-    //        width: 20px;
-    //        left: -30px;
-    //    }
-    //}
-    //&:after {
-    //    content: "";
-    //    width: 50px;
-    //    height: 3px;
-    //    background-color: $accentColor;
-    //    position: absolute;
-    //    right: -70px;
-    //    top: 50%;
-    //    @media only screen and (max-width: $smallDisplay) {
-    //        width: 20px;
-    //        right: -30px;
-    //    }
-    //}
+.title, .titleLight {
+  text-align: center;
+  color: $titleColor;
+  font-size: 30px;
+  position: relative;
+  margin: 60px auto auto;
+  display: table;
+  font-weight: bold;
+  @media only screen and (max-width: $smallDisplay) {
+    font-size: 25px;
+    margin: 20px auto auto;
+    padding: 0 20px;
+  }
+  //&:before {
+  //    content: "";
+  //    width: 50px;
+  //    height: 3px;
+  //    background-color: $accentColor;
+  //    position: absolute;
+  //    left: -70px;
+  //    top: 50%;
+  //    @media only screen and (max-width: $smallDisplay) {
+  //        width: 20px;
+  //        left: -30px;
+  //    }
+  //}
+  //&:after {
+  //    content: "";
+  //    width: 50px;
+  //    height: 3px;
+  //    background-color: $accentColor;
+  //    position: absolute;
+  //    right: -70px;
+  //    top: 50%;
+  //    @media only screen and (max-width: $smallDisplay) {
+  //        width: 20px;
+  //        right: -30px;
+  //    }
+  //}
 }
 
+.titleLight{
+  color: $whiteColor;
+}
 .description {
-    font-size: 18px;
-    text-align: center;
-    color: $descriptionColor;
-    max-width: 600px;
-    margin: 30px auto auto;
-    @media only screen and (max-width: $smallDisplay) {
-        font-size: 14px;
-        margin: 20px auto;
-    }
+  font-size: 18px;
+  text-align: center;
+  color: $whiteColor;
+  max-width: 600px;
+  margin: 30px auto auto;
+  @media only screen and (max-width: $smallDisplay) {
+    font-size: 14px;
+    margin: 20px auto;
+  }
 }
 
-.benefits{
-    padding: 10px 120px;
-    text-align: center;
-    @media only screen and (max-width: $mediumDisplay) {
-        padding: 10px 10%;
-    }
-    @media only screen and (max-width: $smallDisplay) {
-        padding: 10px 20px;
-    }
+.benefits {
+  padding: 10px 120px 60px;
+  text-align: center;
+  background: url("../../assets/benefitBG.png");
+  background-color: $backgroundColorDark;
+  background-position: center center;
+  color: $whiteColor;
+  @media only screen and (max-width: $mediumDisplay) {
+    padding: 10px 10%;
+  }
+  @media only screen and (max-width: $smallDisplay) {
+    background-position: center top;
+    padding: 10px 20px;
+  }
 }
 
 
-.benefitsWrapper{
-    padding: 70px 0 40px;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 30px;
-    @media only screen and (max-width: $extraLargeDisplay) {
-        padding: 40px 0;
-        grid-template-columns: repeat(3, 1fr);
-    }
-    @media only screen and (max-width: $mediumDisplay) {
-        padding: 40px 0;
-        grid-template-columns: repeat(3, 1fr);
-    }
+.benefitsWrapper {
+  padding: 70px 0 40px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 30px;
+  grid-row-gap: 70px;
+  @media only screen and (max-width: $extraLargeDisplay) {
+    padding: 40px 0;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 70px;
+  }
+  @media only screen and (max-width: $smallDisplay) {
+    padding: 40px 0;
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 20px;
+  }
 }
 
-.benefit{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .number{
-        width: 100px;
-        height: 100px;
-        font-size: 30px;
-        border-radius: 10px;
-        background: $accentColor;
-        color: $whiteColor;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-        @media only screen and (max-width: $largeDisplay) {
-            width: 70px;
-            height: 70px;
-            font-size: 25px;
-        }
-        @media only screen and (max-width: $mediumDisplay) {
-            width: 70px;
-            height: 70px;
-            font-size: 20px;
-        }
+.benefit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    }
-    p{
-        color: $titleColor;
-        font-weight: bold;
-        font-size: 20px;
-        @media only screen and (max-width: $largeDisplay) {
-            font-size: 16px;
-        }
-    }
-}
-.aboutus{
-    padding: 10px 120px;
-    @media only screen and (max-width: $mediumDisplay) {
-        padding: 10px 10%;
-    }
-    @media only screen and (max-width: $smallDisplay) {
-        padding: 10px 20px;
-    }
-}
-.text{
-    text-align: center;
-    margin: 10px 0;
-}
-.readMore{
-    color: $accentColorDark;
+  @media only screen and (max-width: $smallDisplay) {
+    text-align: left;
+    align-items: start;
+  }
+  .number {
+    width: 100px;
+    height: 100px;
+    font-size: 30px;
+    border-radius: 10px;
+    background: $accentColor;
+    color: $whiteColor;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    @media only screen and (max-width: $largeDisplay) {
+      width: 70px;
+      height: 70px;
+      font-size: 25px;
+    }
+    @media only screen and (max-width: $mediumDisplay) {
+      width: 70px;
+      height: 70px;
+      font-size: 20px;
+    }
+
+  }
+
+  p {
+    color: $whiteColor;
+    font-weight: bold;
+    font-size: 20px;
+    @media only screen and (max-width: $smallDisplay) {
+      font-size: 16px;
+    }
+  }
+}
+
+.about {
+  padding: 5rem 1rem;
+  @media only screen and (max-width: $smallDisplay) {
+    padding: 2rem 1rem;
+  }
+  &__container {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__content {
+    h2 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+
+      @media (min-width: 768px) {
+        font-size: 2.25rem;
+      }
+    }
+
+    p {
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+      line-height: 1.75;
+    }
+  }
+
+  &__button {
+    font-size: 16px;
+    color: black;
+    border: 2px solid black;
+    padding: 0.8rem 1.5rem;
+    border-radius: 9999px;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: table;
+    margin-bottom: 10px;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+  &__buttonDownload {
+    font-size: 16px;
+    color: white;
+    border: 2px solid black;
+    padding: 0.8rem 1.5rem;
+    border-radius: 9999px;
+    transition: all 0.2s;
+    text-decoration: none;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+    svg{
+      margin-right: .5rem;
+    }
+  }
+
+  &__image {
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      @media only screen and (max-width: $smallDisplay) {
+        height: 200px;
+      }
+    }
+  }
+
+  &__stats {
+    position: absolute;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    @media only screen and (max-width: $smallDisplay) {
+    bottom: -3.5rem;
+    left: -0.5rem;
+      }
+    p:first-child {
+      font-size: 2.25rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+      @media only screen and (max-width: $mediumDisplay) {
+        font-size: 35px;
+      }
+      @media only screen and (max-width: $smallDisplay) {
+        font-size: 30px;
+      }
+      @media only screen and (max-width: $extraSmallDisplay) {
+        font-size: 25px;
+      }
+    }
+
+    p:last-child {
+      color: #4b5563;
+      font-size: 20px;
+      @media only screen and (max-width: $smallDisplay) {
+        font-size: 16px;
+      }
+      @media only screen and (max-width: $extraSmallDisplay) {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+
+.text {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.readMore {
+  color: $accentColorDark;
+  font-weight: bold;
+}
+
+.downloadButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  color: white;
+  background-color: $accentColorDark;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  &:hover {
+    background-color: $accentColorDarker;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+}
+.productsList{
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 40px 60px 0;
+  @media only screen and (max-width: $smallDisplay) {
+    padding: 40px 20px 0;
+  }
 }

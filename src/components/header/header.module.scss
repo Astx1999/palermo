@@ -1,13 +1,13 @@
-@import "/src/styles/variables";
+@import "../../styles/variables";
 
-.root{
+.root {
   position: fixed;
   top: 0;
   z-index: 2;
   background: $whiteColor;
   width: 100%;
-
 }
+
 .header {
   display: flex;
   align-items: center;
@@ -18,34 +18,38 @@
     padding: 34px 70px 0;
   }
   @media only screen and (max-width: $smallDisplay) {
-    flex-direction: column;
-    padding: 25px 30px 0;
+    padding: 25px 30px;
   }
 }
-.nav{
-  padding: 30px 125px;
+
+.nav {
+  padding: 0 125px 30px 125px;
   display: flex;
   justify-content: flex-end;
+  transition: transform 0.3s ease-out;
   @media only screen and (max-width: $extraLargeDisplay) {
-    padding: 30px 70px;
+    padding: 0 70px 30px 70px;
   }
   @media only screen and (max-width: $smallDisplay) {
-    padding: 25px 30px ;
+    padding: 25px 30px;
   }
-  a{
+
+  a {
     margin-left: 30px;
     color: $darkGreyColor;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     @media only screen and (max-width: $smallDisplay) {
       font-size: 18px;
     }
   }
 }
-.active{
+
+.active {
   font-weight: bold;
   position: relative;
-  &:after{
+
+  &:after {
     content: "";
     position: absolute;
     bottom: -16px;
@@ -59,23 +63,28 @@
     }
   }
 }
-.logoWrapper{
+
+.logoWrapper {
   width: 40%;
   @media only screen and (max-width: $smallDisplay) {
     width: 100%;
   }
 }
-.logo{
+
+.logo {
   max-width: 200px;
   @media only screen and (max-width: $smallDisplay) {
     width: 165px;
   }
 }
-.address{
+
+.address {
   text-align: left;
-  .subtitle{
+
+  .subtitle {
     margin-left: 30px;
   }
+
   @media only screen and (max-width: $smallDisplay) {
     width: 100%;
     display: flex;
@@ -84,11 +93,14 @@
     margin-bottom: 5px;
   }
 }
-.number{
+
+.number {
   text-align: right;
-  .subtitle{
+
+  .subtitle {
     margin-left: 30px;
   }
+
   @media only screen and (max-width: $smallDisplay) {
     width: 100%;
     display: flex;
@@ -98,7 +110,7 @@
 
 }
 
-.title{
+.title {
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -106,7 +118,8 @@
     font-size: 12px;
     margin-bottom: 5px;
   }
-  img{
+
+  img {
     width: 25px;
     height: 25px;
     margin-right: 5px;
@@ -116,10 +129,92 @@
     }
   }
 }
-.subtitle{
+
+.subtitle {
   font-weight: bold;
   font-size: 18px;
   @media only screen and (max-width: $smallDisplay) {
     font-size: 14px;
+  }
+}
+
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav.open {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 70%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  z-index: 101;
+  @media only screen and (max-width: $smallDisplay) {
+    width: 100%;
+  }
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.burgerLine {
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+.closeButton {
+  display: none;
+}
+
+/* When the screen width is less than 768px, show the burger menu */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  .nav {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 70%; /* Or whatever width you need */
+    background-color: #fff;
+    padding: 20px;
+    z-index: 101;
+    transform: translateX(100%); /* Initially off-screen to the right */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for sliding */
+  }
+
+  .nav.open {
+    transform: translateX(0);
+  }
+  .closeButton {
+    position: absolute;
+    display: block;
+    top: 20px;
+    right: 25px;
+    font-size: 50px;
+    color: $darkGreyColor;
+    cursor: pointer;
   }
 }

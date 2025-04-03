@@ -1,0 +1,138 @@
+@import "../../styles/variables";
+
+.container {
+  max-width: 1200px;
+  margin: 120px auto 0 ;
+  padding: 48px 16px;
+}
+
+.backButton {
+  margin-bottom: 32px;
+  display: inline-flex;
+  align-items: center;
+  color: $menuItemLinkColor;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 16px;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.imageContainer {
+  aspect-ratio: 16/9;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.productInfo {
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+  }
+
+  .code {
+    color: $menuItemLinkColor;
+    margin-bottom: 16px;
+  }
+}
+
+.description {
+  margin-bottom: 32px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: $menuItemLinkColor;
+    line-height: 1.6;
+  }
+}
+
+.specifications {
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+
+  dl {
+    display: grid;
+    gap: 8px;
+  }
+}
+
+.specRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  dt {
+    color: $menuItemLinkColor;
+  }
+
+  dd {
+    color: #1a1a1a;
+  }
+}
+
+
+
+.notFoundContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notFoundContent {
+  text-align: center;
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+  }
+
+  button {
+    padding: 8px 16px;
+    background-color: $accentColorDark;
+    color: $whiteColor;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+
+    &:hover {
+      background-color: $accentColorDarker;
+    }
+  }
+}

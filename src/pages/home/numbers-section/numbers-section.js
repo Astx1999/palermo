@@ -26,7 +26,7 @@ const NumbersSection = ( ) => {
                     </div>
                     <div className={styles.numberWrapper}>
                         <p>
-                            <CountUp end={350}  className={styles.number}  redraw={true}>
+                            <CountUp end={20}  className={styles.number}  redraw={true}>
                                 {({ countUpRef, start }) => (
                                     <VisibilitySensor onChange={start} delayedCall>
                                         <span ref={countUpRef} />
@@ -36,7 +36,7 @@ const NumbersSection = ( ) => {
                             <sup className={styles.sup}>+</sup>
                         </p>
 
-                        <p className={styles.numberDescription}>{t('installed_station')}</p>
+                        <p className={styles.numberDescription}>{t('designs_materials')}</p>
                     </div>
                     <div className={styles.numberWrapper}>
                         <p>

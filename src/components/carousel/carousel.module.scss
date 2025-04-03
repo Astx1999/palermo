@@ -1,5 +1,6 @@
 @import "../../styles/variables";
 .root{
+    margin-top: 140px;
     :global{
         .swiper-button-next, .swiper-button-prev{
             &:after{
@@ -18,24 +19,23 @@
         }
     }
     @media only screen and (max-width: $smallDisplay) {
-        height: 100vh;
+        margin-top: 97px;
     }
 }
 .slide{
     width: 100%;
+
 }
 .image{
     width: 100%;
     /*height: 690px;*/
-    height: 100vh;
+    //height: 100vh;
     object-fit: cover;
     object-position: top;
     @media only screen and (max-width: $mediumDisplay) {
         width: 100%;
-        height: 70vh;
     }
     @media only screen and (max-width: $smallDisplay) {
-        height: 100vh;
     }
 }
 .about{
@@ -48,7 +48,7 @@
         padding: 0 10%;
     }
     @media only screen and (max-width: $smallDisplay) {
-        padding: 0px 20px;
+        padding: 0 20px;
     }
 }
 .title {
@@ -87,7 +87,7 @@
     text-decoration: none;
     text-transform: uppercase;
     display: inline-block;
-    background: #aec79e;
+    background: $accentColor;
     color: $whiteColor;
     font-weight: bold;
     border: none;

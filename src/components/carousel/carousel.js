@@ -36,6 +36,7 @@ const Carousel = ({slides}) => {
                 spaceBetween={0}
                 slidesPerView={1}
                 pagination={{clickable: true}}
+                lazyload="true"
             >
                 {slides &&
                 slides.map((slide, index) => {
@@ -47,15 +48,17 @@ const Carousel = ({slides}) => {
                                         className={styles.image}
                                         src={`${slide.mobile_image}`}
                                         alt={slide.title}
+                                        loading="lazy"
                                     /> :
                                     <img
                                         className={styles.image}
                                         src={`${slide.desktop_image}`}
                                         alt={slide.title}
+                                        loading="lazy"
                                     />
                                 }
 
-                                <div className={styles.about}>
+                               {/* <div className={styles.about}>
                                     <p className={styles.title}>
                                         {slide.title}
                                     </p>
@@ -73,7 +76,7 @@ const Carousel = ({slides}) => {
                                                 </span>
                                         </Button>
                                     </div>
-                                </div>
+                                </div>*/}
                             </div>
                         </SwiperSlide>
                     );

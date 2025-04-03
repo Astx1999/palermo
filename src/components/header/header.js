@@ -1,37 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
-import Logo from '../../assets/KhimMasterLogoDark.png';
-import Location from '../../assets/Location.png';
-import Phone from '../../assets/Phone.png';
+import Logo from '../../assets/palermologo.png';
 import styles from './header.module.scss';
-import { ADDRESS, PHONE_NUMBER_ONE } from '../../constants/company-data';
+import useWindowResize from '../../hook/useWindowResize';
+import ScrollTopButton from "../scrollTopButton/scrollTopButton";
 
 const menuItems = [
-    {
-        item: "HOME",
-        section: "home",
-        link: "home",
-    },
-    {
-        item: "ABOUT_US",
-        section: "about-us",
-        link: "about-us",
-    },
-    {
-        item: "CONTACT_US",
-        section: "contact-us",
-        link: "contact-us",
-    },
+    { item: "HOME", section: "home", link: "/" },
+    { item: "ABOUT_US", section: "about-us", link: "/about-us" },
+    { item: "PRODUCTS", section: "products", link: "/products" },
+    { item: "CONTACT_US", section: "contactUs", link: "/contactUs" },
 ];
 
 const Header = () => {
     const { t } = useTranslation();
     const location = useLocation();
+    const { width } = useWindowResize();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [location.pathname]);
+
+
+    const toggleMenu = () => setIsMenuOpen(prev => !prev);
+    const closeMenu = () => setIsMenuOpen(false);
 
     return (
         <div className={styles.root}>
@@ -39,31 +33,31 @@ const Header = () => {
                 <Link to={"/"} className={styles.logoWrapper}>
                     <img className={styles.logo} src={Logo} alt="logo" />
                 </Link>
-
-                <div className={styles.address}>
-                    <p className={styles.title}>
-                        <img src={Location} alt=""/> {t('address')}
-                    </p>
-                    <p className={styles.subtitle}>{t(ADDRESS)}</p>
-                </div>
-                <div className={styles.number}>
-                    <p className={styles.title}>
-                        <img src={Phone} alt=""/> {t('call')}
-                    </p>
-                    <p className={styles.subtitle}>{PHONE_NUMBER_ONE}</p>
-                </div>
+                {width < 768 && (
+                    <div className={styles.burger} onClick={toggleMenu}>
+                        <span className={styles.burgerLine}></span>
+                        <span className={styles.burgerLine}></span>
+                        <span className={styles.burgerLine}></span>
+                    </div>
+                )}
             </div>
-            <div className={styles.nav}>
+
+            <div className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}>
+                <div className={styles.closeButton} onClick={closeMenu}>
+                    &times;
+                </div>
                 {menuItems.map((item) => (
                     <Link
                         key={item.section}
                         to={item.link}
-                        className={location.pathname.includes(item.link) ||
-                        ( item.section === "home" && (location.pathname === "/" || location.pathname === "")) ? styles.active : styles.link}>
+                        onClick={closeMenu}
+                        className={location.pathname === item.link ? styles.active : styles.link}>
                         {t(item.item)}
                     </Link>
                 ))}
             </div>
+
+            <ScrollTopButton/>
         </div>
     );
 };

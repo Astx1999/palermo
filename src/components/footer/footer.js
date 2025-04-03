@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useTranslation} from "react-i18next";
-import Logo from '../../assets/KhimMasterLogoDark.png'
+import Logo from '../../assets/palermologo.png'
 import Location from '../../assets/Location.png'
 import Phone from '../../assets/Phone.png'
 import Email from '../../assets/Email.png'
@@ -31,15 +31,15 @@ const menuItems = [
         section: "about-us",
         link: "about-us",
     },
-    // {
-    //     item: "PRODUCTS",
-    //     section: "products",
-    //     link: "products",
-    // },
+    {
+        item: "PRODUCTS",
+        section: "products",
+        link: "products",
+    },
     {
         item: "CONTACT_US",
-        section: "contact-us",
-        link: "contact-us",
+        section: "contactUs",
+        link: "contactUs",
     },
 ];
 const newDate = new Date();
