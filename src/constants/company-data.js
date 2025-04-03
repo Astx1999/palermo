@@ -5,7 +5,7 @@ const PHONE_NUMBER_TWO = '';
 const PHONE_NUMBER_FORMATTED_ONE = '021-88615440';
 const PHONE_NUMBER_FORMATTED_TWO = '';
 const ADDRESS = 'address_details';
-const COMPANY_EMAIL = 'info@palermo.ru';
+const COMPANY_EMAIL = 'info@palermoceramic.ru';
 const TIME = 'working-hours'
 
 
