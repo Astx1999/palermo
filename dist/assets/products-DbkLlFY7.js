@@ -1,0 +1,1 @@
+import{j as o}from"./index-Bz4-D0m9.js";import{P as t}from"./ceramicProducts-BfloXfUS.js";const s="_root_y7dcp_1",r={root:s},a=()=>o.jsx("div",{className:r.root,children:o.jsx(t,{})});export{a as default};
