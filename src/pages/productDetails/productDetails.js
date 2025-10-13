@@ -1,41 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../firebase';
+import React, {useEffect, useState} from 'react';
+import {useParams, useNavigate} from 'react-router-dom';
+import {fetchProductById} from '../../supabaseClient';
 import styles from './productDetail.module.scss';
 import Loading from "../../components/loading/loading";
 import {ArrowLeft} from 'lucide-react';
 
 function ProductDetails() {
-    const { id } = useParams();
+    const {id} = useParams();
     const navigate = useNavigate();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchProduct = async () => {
+        const getProduct = async () => {
             try {
-                const docRef = doc(db, "ceramic-products", id);
-                const docSnap = await getDoc(docRef);
-
-                if (docSnap.exists()) {
-                    setProduct({
-                        id: docSnap.id,
-                        ...docSnap.data()
-                    });
-                }
+                const data = await fetchProductById(id);
+                setProduct(data);
             } catch (error) {
-                console.error('Ошибка при получении информации о продукте:', error);
+                console.error('Error fetching product:', error);
             } finally {
                 setLoading(false);
             }
         };
-
-        fetchProduct();
+        getProduct();
     }, [id]);
 
     if (loading) {
-        return <Loading />;
+        return <Loading/>;
     }
 
     if (!product) {
@@ -66,52 +57,58 @@ function ProductDetails() {
                 <div className={styles.imageContainer}>
                     <img
                         src={product.image}
-                        alt={product.metadata.name}
+                        alt={product.title}
                     />
                 </div>
 
                 <div className={styles.productInfo}>
-                    <h1>{product.metadata.name}</h1>
-                    <p className={styles.code}>Код: {product.metadata.code}</p>
+                    <h1>{product.title}</h1>
+                    <p className={styles.code}>Код: {product.code}</p>
 
-                    {product.metadata.description && (
+                    {product.description && (
                         <div className={styles.description}>
                             <h2>Описание</h2>
-                            <p>{product.metadata.description}</p>
+                            <p>{product.description}</p>
                         </div>
                     )}
 
                     <div className={styles.specifications}>
                         <h2>Характеристики</h2>
                         <dl>
-                            {product.metadata.size && (
+                            {product.size && (
                                 <div className={styles.specRow}>
                                     <dt>Размер:</dt>
-                                    <dd>{product.metadata.size}</dd>
+                                    <dd>{product.size}</dd>
                                 </div>
                             )}
-                            {product.metadata.bodyType && (
+                            {product.price && (
                                 <div className={styles.specRow}>
-                                    <dt>Тип основы:</dt>
-                                    <dd>{product.metadata.bodyType}</dd>
+                                    <dt>Цена:</dt>
+                                    <dd>{product.price} ₽/м2</dd>
                                 </div>
                             )}
-                            {product.metadata.grade && (
+                            {product.color && (
                                 <div className={styles.specRow}>
-                                    <dt>Класс:</dt>
-                                    <dd>{product.metadata.grade}</dd>
+                                    <dt>Цвет:</dt>
+                                    <dd>{product.color}</dd>
                                 </div>
                             )}
-                            {product.metadata.surface && (
+                            {product.style && (
+                                <div className={styles.specRow}>
+                                    <dt>Стиль:</dt>
+                                    <dd>{product.style}</dd>
+                                </div>
+                            )}
+                            {product.surface && (
                                 <div className={styles.specRow}>
                                     <dt>Поверхность:</dt>
-                                    <dd>{product.metadata.surface}</dd>
+                                    <dd>{product.surface}</dd>
                                 </div>
                             )}
-                            {product.metadata.thickness && (
+                            {product.thickness && (
                                 <div className={styles.specRow}>
                                     <dt>Толщина:</dt>
-                                    <dd>{product.metadata.thickness}</dd>
+                                    <dd>{product.thickness}</dd>
                                 </div>
                             )}
                         </dl>

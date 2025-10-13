@@ -1,9 +1,9 @@
 import {Routes, Route} from "react-router-dom";
 import Header from "./components/header/header"
 import Footer from "./components/footer/footer";
-import {lazy, Suspense, useEffect} from 'react';
-import {analytics} from "./firebase"; // import the analytics instance
-import {logEvent} from "firebase/analytics";
+import {lazy, Suspense} from 'react';
+// import {analytics} from "./firebase"; // import the analytics instance
+// import {logEvent} from "firebase/analytics";
 import Loading from "./components/loading/loading";
 
 const Home = lazy(() => import("./pages/home/home"));
@@ -14,16 +14,16 @@ const ProductDetails = lazy(() => import("./pages/productDetails/productDetails"
 
 
 function App() {
-    useEffect(() => {
-        logEvent(analytics, "page_view");
-        const logPageView = () => {
-            logEvent(analytics, "page_view", {
-                page_title: "home",
-                page_location: "/",
-            });
-        };
-        logPageView();
-    }, []);
+    // useEffect(() => {
+    //     logEvent(analytics, "page_view");
+    //     const logPageView = () => {
+    //         logEvent(analytics, "page_view", {
+    //             page_title: "home",
+    //             page_location: "/",
+    //         });
+    //     };
+    //     logPageView();
+    // }, []);
 
     return (
         <div className="App">

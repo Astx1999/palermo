@@ -1,0 +1,1 @@
+import{j as o}from"./index-CI1Q2qMq.js";import{P as t}from"./ceramicProducts-CU4pkx-1.js";const s="_root_y7dcp_1",r={root:s},a=()=>o.jsx("div",{className:r.root,children:o.jsx(t,{})});export{a as default};

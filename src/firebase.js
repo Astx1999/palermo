@@ -5,7 +5,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAFLvOmWiAt32SKghw9dGP8-7D6h37ATEY",
+    apiKey: import.meta.env.VITE_FIREBASE_KEY,
     authDomain: "palermo-23de3.firebaseapp.com",
     projectId: "palermo-23de3",
     storageBucket: "palermo-23de3.firebasestorage.app",
@@ -16,18 +16,18 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 const db = getFirestore(app);
-const auth = getAuth(app);
+// const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 // Function to sign in with Google
-const signInWithGoogle = async () => {
-    try {
-        const result = await signInWithPopup(auth, provider);
-        console.log("User signed in:", result.user);
-    } catch (error) {
-        console.error("Error signing in:", error);
-    }
-};
-export { db, collection, getDocs, analytics,  auth, signInWithGoogle };
+// const signInWithGoogle = async () => {
+//     try {
+//         const result = await signInWithPopup(auth, provider);
+//         console.log("User signed in:", result.user);
+//     } catch (error) {
+//         console.error("Error signing in:", error);
+//     }
+// };
+export { db, collection, getDocs };

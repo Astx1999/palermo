@@ -4,13 +4,13 @@ import Carousel from "../../components/carousel/carousel";
 import NumbersSection from "./numbers-section/numbers-section";
 import styles from "./home.module.scss";
 import {Link} from "react-router-dom";
-import ProductsList from "../../components/ceramicProducts/ceramicProducts";
+import ProductsList from "./ceramicProductList/productList";
 import {Download} from 'lucide-react';
 import AboutUsImage from "../../images/aboutUs.jpg";
 
 
 const Home = () => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const [data, setData] = useState(
         {
             home_carousel_slides: [
