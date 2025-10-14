@@ -6,7 +6,7 @@ import Loading from "../../components/loading/loading";
 import { useTranslation } from "react-i18next";
 import CustomSelect from "../customSelect/customSelect";
 
-const SIZE_OPTIONS = {
+export const SIZE_OPTIONS = {
     tile: [
         "All sizes",
         "17x120x1,2",
@@ -131,7 +131,7 @@ function ProductsList() {
                 {products.length > 0 ? (
                     products.map(product => (
                         <div key={product.id} className={styles.product} onClick={() => handleProductClick(product.id)}>
-                            <img src={product.image} alt={product.title} />
+                            <img src={product.images[0]} alt={product.title} />
                             <div className={styles.desc}>
                                 <p className={styles.name}>{product.title}</p>
                                 <p className={styles.code}>{product.code}</p>

@@ -5,6 +5,10 @@ import {lazy, Suspense} from 'react';
 // import {analytics} from "./firebase"; // import the analytics instance
 // import {logEvent} from "firebase/analytics";
 import Loading from "./components/loading/loading";
+import {AuthProvider} from "./pages/admin/useAuth";
+import AdminLogin from "./pages/admin/AdminLogin";
+import PrivateRoute from "./pages/admin/privateRoute";
+import AdminPanel from "./pages/admin/admin";
 
 const Home = lazy(() => import("./pages/home/home"));
 const About = lazy(() => import("./pages/about/about"));
@@ -26,22 +30,34 @@ function App() {
     // }, []);
 
     return (
-        <div className="App">
-            <Header/>
-            <Suspense fallback={<div
-                style={{height: "80vh", display: "flex", alignItems: "center", justifyContent: "center"}}><Loading/>
-            </div>}>
-                <Routes>
-                    <Route element={<Home/>} path={"/home"}/>
-                    <Route element={<Home/>} path={"/"}/>
-                    <Route element={<About/>} path={"/about-us"}/>
-                    <Route element={<ContactUs/>} path={"/contactUs"}/>
-                    <Route element={<Product/>} path="/products"/>
-                    <Route element={<ProductDetails/>} path="/products/:id"/>
-                </Routes>
-            </Suspense>
-            <Footer/>
-        </div>
+        <AuthProvider>
+            <div className="App">
+                <Header />
+                <Suspense fallback={
+                    <div style={{ height: "80vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <Loading />
+                    </div>
+                }>
+                    <Routes>
+                        <Route element={<Home />} path={"/home"} />
+                        <Route element={<Home />} path={"/"} />
+                        <Route element={<About />} path={"/about-us"} />
+                        <Route element={<ContactUs />} path={"/contactUs"} />
+                        <Route element={<Product />} path="/products" />
+                        <Route element={<ProductDetails />} path="/products/:id" />
+
+                        {/* Admin routes */}
+                        <Route element={<AdminLogin />} path="/admin-login" />
+                        <Route element={
+                            <PrivateRoute>
+                                <AdminPanel />
+                            </PrivateRoute>
+                        } path="/admin" />
+                    </Routes>
+                </Suspense>
+                <Footer />
+            </div>
+        </AuthProvider>
     );
 }
 

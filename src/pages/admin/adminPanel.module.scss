@@ -1,0 +1,48 @@
+@import "../../styles/variables";
+
+.container{
+  width: 100%;
+  min-height: 80vh;
+  padding: 50px 40px;
+  margin: 130px auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  h1{
+    color: $textColor;
+  }
+}
+.form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: baseline;
+}
+.input {
+  font-size: 16px;
+  padding: 10px 5px;
+  outline: none;
+  border-radius: 4px;
+  margin-right: 10px;
+  width: 100%;
+  border: 1px solid $borderColor;
+  &::placeholder {
+    color: $placeHolderColor;
+  }
+}
+.button{
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: capitalize;
+  min-width: 90px;
+  border: 1px solid $accentColor;
+  background-color: $accentColor;
+  color: #fff;
+}

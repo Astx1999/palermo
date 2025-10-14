@@ -42,7 +42,7 @@ function ProductsList() {
             <div className={styles.products}>
                 {products.map(product => (
                     <div key={product.id} className={styles.product} onClick={() => handleProductClick(product.id)}>
-                        <img src={product.image} alt={product.title}/>
+                        <img src={product.images[0]} alt={product.title}/>
                         <div className={styles.desc}>
                             <p className={styles.title}>{product.title}</p>
                             <p className={styles.code}>{product.code}</p>
