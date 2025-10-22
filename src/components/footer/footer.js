@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {useTranslation} from "react-i18next";
 import Logo from '../../assets/palermologo.png'
 import Location from '../../assets/Location.png'
@@ -45,7 +45,7 @@ const menuItems = [
 const newDate = new Date();
 const year = newDate.getFullYear();
 export default function Footer() {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
 
     return (
         <div id="footer" className={styles.footer}>
@@ -77,22 +77,22 @@ export default function Footer() {
                             <img src={Phone} alt=""/>
                             <div>
                                 <p className={styles.subtitle}>{t('call')}</p>
-                                <span className={styles.text}>
-                                <a href={`tel:${PHONE_NUMBER_ONE}`}>
-                                    {" "}
-                                    {PHONE_NUMBER_FORMATTED_ONE}
-                                </a>
-                                <br/>
-                                <a href={`tel:${PHONE_NUMBER_TWO}`}>
-                                    {PHONE_NUMBER_FORMATTED_TWO}
-                                </a>
-                            </span>
+                                <div className={styles.text}>
+                                    <a href={`tel:${PHONE_NUMBER_ONE}`}>
+                                        {" "}
+                                        {PHONE_NUMBER_FORMATTED_ONE}
+                                    </a>
+                                    <br/>
+                                    <a href={`tel:${PHONE_NUMBER_TWO}`}>
+                                        {PHONE_NUMBER_FORMATTED_TWO}
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div className={styles.iconWithText}>
                             <img src={Email} alt=""/>
                             <div>
-                                <p  className={styles.subtitle}> {t('email')}</p>
+                                <p className={styles.subtitle}> {t('email')}</p>
                                 <span className={styles.text}>
                                     <a href={`mailto:${COMPANY_EMAIL}`}>
                                         {COMPANY_EMAIL}
@@ -120,14 +120,14 @@ export default function Footer() {
                                 <a
                                     target={"_blank"}
                                     href={FACEBOOK_ACCOUNT}
-                                    className={styles.socialIcon}
+                                    className={styles.socialIcon} rel="noreferrer"
                                 >
                                     <img src={Facebook} alt=""/>
                                 </a>
                                 <a
                                     target={"_blank"}
                                     href={INSTA_ACCOUNT}
-                                    className={styles.socialIcon}
+                                    className={styles.socialIcon} rel="noreferrer"
                                 >
                                     <img src={Instagram} alt=""/>
                                 </a>
